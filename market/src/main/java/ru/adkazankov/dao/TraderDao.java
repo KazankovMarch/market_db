@@ -56,6 +56,11 @@ public class TraderDao extends DaoImpl<Trader> {
     }
 
     @Override
+    public Class getTClass() {
+        return Trader.class;
+    }
+
+    @Override
     public void insert(Trader entity) throws SQLException {
         String sql = "INSERT INTO "+getTable()+" VALUES (?, ?, ?, ?, ?)";
         try(PreparedStatement statement = dbWork.getConnection().prepareStatement(sql)) {
@@ -70,7 +75,7 @@ public class TraderDao extends DaoImpl<Trader> {
 
     @Override
     public void delete(Trader entity) throws SQLException {
-        String sql = "DELETE FROM "+getTable()+" WHERE "+FIO+" = ?, "+CITY+" = ?, "+NAME+" = ?";
+        String sql = "DELETE FROM "+getTable()+" WHERE "+FIO+" = ? AND "+CITY+" = ? AND "+NAME+" = ?";
         try(PreparedStatement statement = dbWork.getConnection().prepareStatement(sql)) {
             statement.setString(1,  entity.getFio());
             statement.setString(2,  entity.getCity());
@@ -82,13 +87,14 @@ public class TraderDao extends DaoImpl<Trader> {
     @Override
     public void update(Trader entity) throws SQLException {
         String sql = "UPDATE "+getTable()+" SET "+COST+" = ?, "+COUNT+" = ? WHERE "
-                +FIO+" = ?, "+CITY+" = ?, "+NAME+" = ?";
+                +FIO+" = ? AND "+CITY+" = ? AND "+NAME+" = ?";
         try(PreparedStatement statement = dbWork.getConnection().prepareStatement(sql)) {
             statement.setDouble(1, entity.getCost());
             statement.setInt(2, entity.getCount());
             statement.setString(3, entity.getFio());
             statement.setString(4, entity.getCity());
             statement.setString(5, entity.getName());
+            System.out.println(statement.toString());
             statement.executeUpdate();
         }
     }

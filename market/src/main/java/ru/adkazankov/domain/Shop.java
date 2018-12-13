@@ -1,8 +1,12 @@
 package ru.adkazankov.domain;
 
+import annotation.Column;
+
 public class Shop {
 
+    @Column(name = "Имя", pKey = true)
     private String name;
+    @Column(name = "Тип")
     private String type;
 
     public Shop() {

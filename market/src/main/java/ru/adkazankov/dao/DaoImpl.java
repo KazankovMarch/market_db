@@ -41,4 +41,13 @@ public abstract class DaoImpl<T> implements Dao<T> {
 
     protected abstract String getTable();
 
+    @Override
+    public void exportTo(String path, String delimiter) throws SQLException {
+        execute("COPY "+getTable()+" TO '"+path+"' DELIMITER '"+delimiter+"'");
+    }
+
+    @Override
+    public void importFrom(String path, String delimiter) throws SQLException {
+        execute("COPY "+getTable()+" FROM '"+path+"' DELIMITER '"+delimiter+"");
+    }
 }

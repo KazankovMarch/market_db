@@ -1,11 +1,18 @@
 package ru.adkazankov.domain;
 
+import annotation.Column;
+
 public class Trader {
 
+    @Column(name = "ФИО", pKey = true)
     private String fio;
+    @Column(name = "Город", pKey = true)
     private String city;
+    @Column(name = "Название", pKey = true)
     private String name;
+    @Column(name = "Цена")
     private Double cost;
+    @Column(name = "Количество позиций")
     private Integer count;
 
     public Trader() {

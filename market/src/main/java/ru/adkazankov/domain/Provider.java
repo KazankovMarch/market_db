@@ -1,8 +1,12 @@
 package ru.adkazankov.domain;
 
+import annotation.Column;
+
 public class Provider {
 
+    @Column(name = "Тип", pKey = true)
     private String type;
+    @Column(name = "Название")
     private String name;
 
     public Provider() {
@@ -36,4 +40,5 @@ public class Provider {
     public void setName(String name) {
         this.name = name;
     }
+
 }

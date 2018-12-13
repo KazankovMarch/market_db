@@ -1,12 +1,17 @@
 package ru.adkazankov.domain;
 
+import annotation.Column;
+
 import java.util.Date;
 
 public class Registration {
 
+    @Column(name = "ФИО", pKey = true)
     private String fio;
+    @Column(name = "Дата рег.")
     private Date date;
-    private Integer TradeCount;
+    @Column(name = "Кол-во позиций")
+    private Integer tradeCount;
 
     public Registration() {
     }
@@ -14,7 +19,7 @@ public class Registration {
     public Registration(String fio, Date date, Integer tradeCount) {
         this.fio = fio;
         this.date = date;
-        TradeCount = tradeCount;
+        this.tradeCount = tradeCount;
     }
 
     @Override
@@ -22,7 +27,7 @@ public class Registration {
         return "Registration{" +
                 "fio='" + fio + '\'' +
                 ", date=" + date +
-                ", TradeCount=" + TradeCount +
+                ", tradeCount=" + tradeCount +
                 '}';
     }
 
@@ -43,10 +48,10 @@ public class Registration {
     }
 
     public Integer getTradeCount() {
-        return TradeCount;
+        return tradeCount;
     }
 
     public void setTradeCount(Integer tradeCount) {
-        TradeCount = tradeCount;
+        this.tradeCount = tradeCount;
     }
 }

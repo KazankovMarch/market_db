@@ -45,6 +45,11 @@ public class ShopDao extends DaoImpl<Shop> {
     }
 
     @Override
+    public Class getTClass() {
+        return Shop.class;
+    }
+
+    @Override
     public void insert(Shop entity) throws SQLException {
         String sql = "INSERT INTO "+getTable()+" VALUES (?, ?)";
         try(PreparedStatement statement = dbWork.getConnection().prepareStatement(sql)) {

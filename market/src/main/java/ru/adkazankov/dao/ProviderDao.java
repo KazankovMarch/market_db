@@ -46,6 +46,11 @@ public class ProviderDao extends DaoImpl<Provider> {
     }
 
     @Override
+    public Class getTClass() {
+        return Provider.class;
+    }
+
+    @Override
     public void insert(Provider entity) throws SQLException {
         String sql = "INSERT INTO "+getTable()+" VALUES (?, ?)";
         try(PreparedStatement statement = dbWork.getConnection().prepareStatement(sql)) {

@@ -24,6 +24,8 @@
             <Button mnemonicParsing="false" onAction="#edit" prefWidth="120.0" text="Изменить" />
             <Button mnemonicParsing="false" onAction="#delete" prefWidth="120.0" text="Удалить" />
             <Button mnemonicParsing="false" onAction="#save" prefWidth="120.0" text="Сохранить" />
+             <Button mnemonicParsing="false" onAction="#exportData" prefWidth="120.0" text="Экспортировать" />
+             <Button mnemonicParsing="false" onAction="#importData" prefWidth="120.0" text="Импортировать" />
          </items>
       </ToolBar>
    </children>

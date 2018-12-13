@@ -48,6 +48,11 @@ public class RegistrationDao extends DaoImpl<Registration> {
     }
 
     @Override
+    public Class getTClass() {
+        return Registration.class;
+    }
+
+    @Override
     public void insert(Registration entity) throws SQLException {
         String sql = "INSERT INTO "+getTable()+" VALUES (?, ?, ?)";
         try(PreparedStatement statement = dbWork.getConnection().prepareStatement(sql)) {

@@ -32,6 +32,9 @@ public class MainFrameController implements Initializable {
         try {
             queryTab.setContent(FXMLLoader.load(getClass().getResource("/view/QueryTab.fxml")));
             providerTab.setContent(FXMLLoader.load(getClass().getResource("/view/ProviderTab.fxml")));
+            registrationTab.setContent(FXMLLoader.load(getClass().getResource("/view/RegistrationTab.fxml")));
+            traderTab.setContent(FXMLLoader.load(getClass().getResource("/view/TraderTab.fxml")));
+            shopTab.setContent(FXMLLoader.load(getClass().getResource("/view/ShopTab.fxml")));
         } catch (IOException e) {
             e.printStackTrace();
         }
