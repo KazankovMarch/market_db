@@ -32,6 +32,16 @@ public class ProviderDao extends DaoImpl<Provider> {
         return TABLE;
     }
 
+    @Override
+    protected Provider fromStringSQL(String line, String delimiter) {
+        Provider provider = new Provider();
+        String[] fields = line.split(delimiter);
+        provider.setType(fields[0]);
+        provider.setName(fields[1]);
+        System.out.println(provider.toString());
+        return provider;
+    }
+
     public Provider findByKey(String name){
         String sql = "SELECT * FROM "+TABLE+" WHERE "+TYPE+" = ?";
         try(PreparedStatement statement = dbWork.getConnection().prepareStatement(sql)) {

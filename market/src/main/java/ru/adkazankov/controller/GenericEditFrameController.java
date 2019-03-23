@@ -1,19 +1,16 @@
 package ru.adkazankov.controller;
 
-import annotation.Column;
+import ru.adkazankov.annotation.Column;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import javafx.util.Pair;
 import ru.adkazankov.App;
 import ru.adkazankov.dao.Dao;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

@@ -1,6 +1,6 @@
 package ru.adkazankov.domain;
 
-import annotation.Column;
+import ru.adkazankov.annotation.Column;
 
 public class Trader {
 

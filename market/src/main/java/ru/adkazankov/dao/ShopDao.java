@@ -31,6 +31,15 @@ public class ShopDao extends DaoImpl<Shop> {
         return TABLE;
     }
 
+    @Override
+    protected Shop fromStringSQL(String line, String delimiter) {
+        Shop shop = new Shop();
+        String[] fields = line.split(delimiter);
+        shop.setName(fields[0]);
+        shop.setType(fields[1]);
+        return shop;
+    }
+
     public Shop findByKey(String name){
         String sql = "SELECT * FROM "+TABLE+" WHERE "+NAME+" = ?";
         try(PreparedStatement statement = dbWork.getConnection().prepareStatement(sql)) {

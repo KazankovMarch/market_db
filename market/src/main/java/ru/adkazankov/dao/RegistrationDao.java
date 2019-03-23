@@ -34,6 +34,16 @@ public class RegistrationDao extends DaoImpl<Registration> {
         return TABLE;
     }
 
+    @Override
+    protected Registration fromStringSQL(String line, String delimiter) {
+        Registration registration = new Registration();
+        String[] fields = line.split(delimiter);
+        registration.setFio(fields[0]);
+        registration.setDate(Date.valueOf(fields[1]));
+        registration.setTradeCount(Integer.parseInt(fields[2]));
+        return registration;
+    }
+
     public Registration findByKey(String fio){
         String sql = "SELECT * FROM "+TABLE+" WHERE "+FIO+" = ?";
         try(PreparedStatement statement = dbWork.getConnection().prepareStatement(sql)) {

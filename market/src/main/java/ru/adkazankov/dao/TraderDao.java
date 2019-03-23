@@ -39,6 +39,18 @@ public class TraderDao extends DaoImpl<Trader> {
         return TABLE;
     }
 
+    @Override
+    protected Trader fromStringSQL(String line, String delimiter) {
+        Trader trader = new Trader();
+        String[] fields = line.split(delimiter);
+        trader.setFio(fields[0]);
+        trader.setCity(fields[1]);
+        trader.setName(fields[2]);
+        trader.setCost(Double.parseDouble(fields[3]));
+        trader.setCount(Integer.parseInt(fields[4]));
+        return trader;
+    }
+
     public Trader findBykey(String fio, String city, String name){
         String sql = "SELECT * FROM "+getTable()+" WHERE "
                 +FIO+" = ? AND "+CITY+" = ? AND "+NAME+" = ?";
